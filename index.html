@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Catatan Keuangan Harian — Simple</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>Catatan Keuangan Harian</h1>
+      <p class="muted">Simpan di browser (localStorage). Ekspor / impor untuk backup.</p>
+    </header>
+
+    <section class="card form-card">
+      <h2>Tambah Transaksi</h2>
+      <form id="txn-form">
+        <div class="row">
+          <label> Tipe
+            <select id="type" required>
+              <option value="expense">Pengeluaran</option>
+              <option value="income">Pemasukan</option>
+            </select>
+          </label>
+          <label> Jumlah (Rp)
+            <input id="amount" type="number" step="0.01" min="0" required />
+          </label>
+        </div>
+
+        <div class="row">
+          <label> Tanggal
+            <input id="date" type="date" required />
+          </label>
+          <label> Kategori
+            <input id="category" type="text" placeholder="Makan, Transport, Gaji..." />
+          </label>
+        </div>
+
+        <label> Catatan
+          <input id="note" type="text" placeholder="Optional" />
+        </label>
+
+        <div class="row actions">
+          <button type="submit" id="save-btn">Tambah</button>
+          <button type="button" id="clear-form">Bersihkan</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card summary-card">
+      <div class="summary">
+        <div>
+          <div class="label">Saldo</div>
+          <div id="balance" class="big-money">Rp 0</div>
+        </div>
+        <div>
+          <div class="label">Total Pemasukan</div>
+          <div id="total-income">Rp 0</div>
+        </div>
+        <div>
+          <div class="label">Total Pengeluaran</div>
+          <div id="total-expense">Rp 0</div>
+        </div>
+      </div>
+
+      <div class="controls">
+        <label>Filter: 
+          <select id="filter-type">
+            <option value="all">Semua</option>
+            <option value="income">Pemasukan</option>
+            <option value="expense">Pengeluaran</option>
+          </select>
+        </label>
+        <label> Dari
+          <input id="filter-from" type="date" />
+        </label>
+        <label> Sampai
+          <input id="filter-to" type="date" />
+        </label>
+        <button id="apply-filter">Terapkan</button>
+        <button id="reset-filter">Reset</button>
+      </div>
+    </section>
+
+    <section class="card list-card">
+      <h2>Daftar Transaksi</h2>
+      <div id="txns-list" class="txns-list"></div>
+      <div class="list-actions">
+        <button id="export-csv">Ekspor CSV</button>
+        <button id="export-json">Ekspor JSON</button>
+        <label class="import-label">
+          Impor JSON
+          <input id="import-json" type="file" accept="application/json" />
+        </label>
+        <button id="clear-all" class="danger">Hapus Semua</button>
+      </div>
+    </section>
+
+    <section class="card report-card">
+      <h2>Ringkasan Bulanan</h2>
+      <div id="monthly-summary" class="monthly-summary"></div>
+    </section>
+
+    <footer class="muted small">
+      <p>Dirancang untuk jadi ringan & mudah di-deploy <strong>(GitHub + Vercel)</strong>. Data tersimpan di browser pengguna.</p>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+      </html>
