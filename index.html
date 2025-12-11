@@ -14,10 +14,14 @@
   }
   </script>
   <main class="container">
-    <header>
-      <h1>Catatan Keuangan Harian</h1>
-      <p class="muted">Simpan di browser (localStorage). Ekspor / impor untuk backup.</p>
-    </header>
+    <header style="display:flex; justify-content:space-between; align-items:center;">
+  <div>
+    <h1>Catatan Keuangan Harian</h1>
+    <p class="muted">Simpan di browser (localStorage). Ekspor / impor untuk backup.</p>
+  </div>
+
+  <button onclick="logout()" class="logout-btn">Logout</button>
+</header>
 
     <section class="card form-card">
       <h2>Tambah Transaksi</h2>
