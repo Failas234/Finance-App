@@ -14,6 +14,10 @@ const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2,8
 const safeParse = (v, d=[]) => { try { return JSON.parse(v); } catch(e){ return d; } };
 
 /* === Storage layer === */
+function logout() {
+  localStorage.removeItem("finance_access");
+  location.href = "access.html";
+}
 function loadTxns() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
