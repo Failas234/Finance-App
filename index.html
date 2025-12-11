@@ -6,7 +6,13 @@
   <title>Catatan Keuangan Harian — Simple</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body> 
+  <script>
+  const allowed = localStorage.getItem("finance_access");
+  if (allowed !== "ok") {
+    location.href = "access.html";
+  }
+  </script>
   <main class="container">
     <header>
       <h1>Catatan Keuangan Harian</h1>
