@@ -46,6 +46,18 @@ button:disabled{opacity:.6;cursor:not-allowed}
 .month-row .bar{flex:1;height:12px;border-radius:8px;background:#f3f4f6;overflow:hidden}
 .month-row .bar > span{display:block;height:100%}
 
+.logout-btn {
+  background: #e11d48;
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background: #be123c;
+}
 /* responsive */
 @media (max-width:640px){
   .summary{flex-direction:column;align-items:flex-start}
